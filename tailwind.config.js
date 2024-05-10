@@ -1,9 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       colors: {
@@ -17,14 +14,13 @@ export default {
         'surface-tertiary': '#4E4563',
 
         'text-primary': '#F5F6F6',
-        'text-secondary': '#CDD0D4'
+        'text-secondary': '#CDD0D4',
       },
       fontFamily: {
         heebo: "'Heebo', sans-serif",
-        kalam: "'Kalam', cursive"
-      }
+        kalam: "'Kalam', cursive",
+      },
     },
   },
   plugins: [],
 }
-
