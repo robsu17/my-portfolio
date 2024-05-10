@@ -30,7 +30,7 @@ type Language = {
 }
 
 export function Navbar() {
-  const [language, setLanguage] = useState<Language>({
+  const [language] = useState<Language>({
     type: 'PT'
   })
 
