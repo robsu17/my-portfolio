@@ -13,7 +13,7 @@ const socials = [
 
 export function Footer() {
   return (
-    <footer className="flex justify-between items-center text-text-secondary text-sm font-heebo font-normal">
+    <footer className="flex justify-between items-center py-8 text-text-secondary text-sm font-heebo font-normal">
       <div>
         <p>
           Robson Wendel 2024. Layout based on
