@@ -12,7 +12,7 @@ export function Button({ type = 'PRIMARY', label }: Props) {
             ? 'bg-primary-color-500 hover:bg-primary-color-400'
             : 'bg-surface-secondary hover:bg-surface-tertiary'
         } 
-         py-4 px-6 rounded-lg text-text-primary focus:border focus:border-white duration-200 text-base font-heebo font-medium
+         py-4 px-6 rounded-lg text-text-primary focus:outline focus:outline-1 focus:outline-white text-base font-heebo font-medium
       `}
     >
       {label}
