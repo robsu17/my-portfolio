@@ -5,7 +5,7 @@ export function About() {
   return (
     <div
       id="sobre"
-      className="flex flex-col gap-4 bg-surface-primary p-8 rounded-xl"
+      className="flex flex-col gap-4 bg-surface-primary p-8 rounded-xl my-40"
     >
       <Info />
       <Techs />
