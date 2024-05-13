@@ -1,31 +1,56 @@
 import { Icon } from '@iconify/react/dist/iconify.js'
-import cover from '../../../assets/card-cover.png'
 
-export function ProjectCard() {
+type props = {
+  name: string
+  description: string
+  createdAt: string
+  stacks: {
+    id: number
+    icon: JSX.Element
+  }[]
+  banner: string
+  plataform: string
+}
+
+export function ProjectCard({
+  name,
+  description,
+  createdAt,
+  stacks,
+  banner,
+  plataform,
+}: props) {
   return (
-    <div className="bg-surface-primary p-6 w-fit rounded-2xl min-w-[312px] max-w-[384px]">
-      <div className="h-[160px] rounded-t-xl overflow-hidden">
-        <img src={cover} alt="cover" className="h-full w-full" />
-      </div>
-      <div className="mt-4">
-        <div className="flex justify-between items-center mb-2">
-          <h1 className="text-sm text-text-secondary">Jul - Dec 2022</h1>
-          <div className="flex gap-2">
-            <Icon icon="devicon:html5" width={21} />
-            <Icon icon="devicon:css3" width={21} />
-            <Icon icon="devicon:javascript" width={21} />
-          </div>
+    <a href="">
+      <div className="bg-surface-primary p-6 rounded-2xl min-w-[312px] max-w-[384px] w-full hover:outline hover:outline-1 hover:outline-secondary-color hover:shadow-[0_0px_8px_1px_rgba(125,255,175,0.5)] duration-200">
+        <div className="h-[160px] rounded-t-xl overflow-hidden">
+          <img src={banner} alt="banner" className="h-full w-full" />
         </div>
-        <h1 className="text-text-primary font-heebo font-medium text-xl">
-          Nome do Projeto
-        </h1>
-        <p className="text-text-secondary font-normal font-heebo mt-2">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis dolores
-          unde id doloremque officia facilis, eligendi, nulla cupiditate odit
-          deserunt beatae quibusdam iure reprehenderit, molestiae soluta
-          molestias dignissimos neque qui.
-        </p>
+        <div className="mt-4">
+          <div className="flex justify-between items-center mb-2">
+            <h1 className="text-sm text-text-secondary">{createdAt}</h1>
+            <div className="flex gap-2">
+              {stacks.map((stack) => {
+                return stack.icon
+              })}
+            </div>
+          </div>
+          <h1 className="text-text-primary font-heebo font-medium text-xl">
+            {name}
+          </h1>
+          <p className="text-text-secondary font-normal font-heebo mt-2">
+            {description}
+          </p>
+          <p className="text-secondary-color mt-2 flex items-center gap-2">
+            {plataform === 'Web' ? (
+              <Icon icon="mdi:computer" width={20} />
+            ) : (
+              <Icon icon="fa:mobile" width={12} />
+            )}
+            {plataform}
+          </p>
+        </div>
       </div>
-    </div>
+    </a>
   )
 }

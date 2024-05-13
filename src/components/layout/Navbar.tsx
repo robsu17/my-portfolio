@@ -16,12 +16,12 @@ const links = [
   {
     id: 3,
     session: 'Projetos',
-    href: '#',
+    href: '#projetos',
   },
   {
     id: 4,
     session: 'Contatos',
-    href: '#',
+    href: '#contatos',
   },
 ]
 
