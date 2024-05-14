@@ -1,45 +1,10 @@
-import { useState } from 'react'
+import { linksPrimary, linksSecondary } from './data/links'
 
-import { Icon } from '@iconify/react'
-
-const links = [
-  {
-    id: 1,
-    session: 'Home',
-    href: '#',
-  },
-  {
-    id: 2,
-    session: 'Sobre',
-    href: '#sobre',
-  },
-  {
-    id: 3,
-    session: 'Projetos',
-    href: '#projetos',
-  },
-  {
-    id: 4,
-    session: 'Contatos',
-    href: '#contatos',
-  },
-]
-
-type Language = {
-  type: 'PT' | 'EN'
+type Props = {
+  type: 'PRIMARY' | 'SECONDARY'
 }
 
-export function Navbar() {
-  const [language] = useState<Language>({
-    type: 'PT',
-  })
-
-  const [darkMode, setDarkMode] = useState<boolean>(true)
-
-  function handleSwitchDarkMode() {
-    setDarkMode(!darkMode)
-  }
-
+export function Navbar({ type = 'PRIMARY' }: Props) {
   return (
     <div className="py-4 flex justify-between items-center shadow-xl">
       <div>
@@ -49,37 +14,45 @@ export function Navbar() {
       </div>
       <div className="flex items-center gap-6">
         <ul className="flex justify-between gap-6">
-          {links.map((link) => {
-            return (
-              <li key={link.id} className="p-2">
-                <a
-                  className="font-heebo font-normal text-text-secondary text-base hover:text-text-primary hover:font-bold duration-200"
-                  href={link.href}
-                >
-                  {link.session}
-                </a>
-              </li>
-            )
-          })}
+          {type === 'PRIMARY' &&
+            linksPrimary.map((link) => {
+              return (
+                <li key={link.id} className="p-2">
+                  <a
+                    className="font-heebo font-normal text-text-secondary text-base hover:text-text-primary hover:font-bold duration-200"
+                    href={link.href}
+                    rel="noreferrer"
+                  >
+                    {link.session}
+                  </a>
+                </li>
+              )
+            })}
+          {type === 'SECONDARY' &&
+            linksSecondary.map((link) => {
+              return (
+                <li key={link.id} className="p-2">
+                  <a
+                    className="font-heebo font-normal text-text-secondary text-base hover:text-text-primary hover:font-bold duration-200"
+                    href={link.href}
+                    rel="noreferrer"
+                  >
+                    {link.session}
+                  </a>
+                </li>
+              )
+            })}
+          <li className="p-2">
+            <a
+              className="font-heebo font-normal text-text-secondary text-base hover:text-text-primary hover:font-bold duration-200"
+              href="https://robsu17.github.io/resume/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              CV
+            </a>
+          </li>
         </ul>
-        <div className="flex items-center gap-6">
-          <button
-            type="button"
-            className="font-heebo font-normal text-text-secondary text-base hover:text-text-primary hover:font-bold duration-200"
-          >
-            {language.type}
-          </button>
-          <button
-            onClick={handleSwitchDarkMode}
-            type="button"
-            className="font-heebo font-normal text-text-secondary text-base hover:text-text-primary hover:font-bold duration-200"
-          >
-            <Icon
-              icon={darkMode ? 'carbon:light' : 'carbon:light-filled'}
-              width={20}
-            />
-          </button>
-        </div>
       </div>
     </div>
   )
